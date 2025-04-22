@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 
 
@@ -7,8 +8,12 @@ const app = express();
 // Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+let quotes = []
+quotes = JSON.parse(fs.readFileSync(path.join(__dirname, 'quotes.json'), 'utf-8'));
+
 // Quotes endpoint
-const quotes = [
+const quotes1 = [
   "The only way to do great work is to love what you do. – Steve Jobs",
   "Life is what happens when you're busy making other plans. – John Lennon",
   "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
