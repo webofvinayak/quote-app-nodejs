@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-let quotes = []
+let quotes = [];
 quotes = JSON.parse(fs.readFileSync(path.join(__dirname, 'quotes.json'), 'utf-8'));
 
 // Quotes endpoint
